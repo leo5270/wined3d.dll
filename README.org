@@ -1,0 +1,34 @@
+This builds patched DLL for the original Diablo to run on Wine.
+
+Patch is sourced from: https://forum.winehq.org/viewtopic.php?t=22340
+
+** Installation
+
+Grab prebuilt DLL from [[https://github.com/yegortimoshenko/wined3d.dll/releases][GitHub Releases]], preferably version that matches your
+Wine version. Copy it to ~$WINEPREFIX/drive_c/Diablo/wined3d.dll~ and then
+set Diablo.exe DDraw renderer to GDI:
+
+: wine REG ADD HKEY_CURRENT_USER\\Software\\Wine\\AppDefaults\\Diablo.exe\\Direct3D /V DirectDrawRenderer /T REG_SZ /D gdi
+
+Diablo should now run. Main game menu should now be visible, but not without
+visual glitches: animated images update only on mouse hover.
+
+Also please mind that, as of 2.11-staging, Diablo does not run on Wine staging,
+probably due to [[https://github.com/wine-compholio/wine-staging/tree/v2.21/patches][some DDraw patch]].
+
+** Build from source
+
+You will need [[https://nixos.org/nix/][Nix]]. Once it's installed, run ~nix-build~ while inside this repo's
+directory. After the build is completed, ~result~ will point to patched DLL.
+
+Currently only supports Linux (see [[https://github.com/NixOS/nixpkgs/issues/8849][NixOS/nixpkgs#8849]]). If you use macOS and
+really want this, clone [[https://github.com/wine-mirror/wine][Wine repo]], checkout version that you want to patch,
+apply ~ddraw_hack.patch~, run ~./configure~ and ~make dlls/wined3d~. When build
+is complete, rename DLL in ~dlls/wined3d~ (not the fake one) to ~wined3d.dll~
+and follow the instructions above. Primer:
+
+: git clone https://github.com/wine-mirror/wine
+: git checkout wine-2.12
+: git am ddraw_hack.patch
+: ./configure
+: make dlls/wined3d
