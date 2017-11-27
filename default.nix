@@ -1,7 +1,12 @@
 { pkgs ? import <nixpkgs> {} }:
 
-with pkgs;
+let
+  inherit (pkgs) wine wineUnstable wineStaging;
+  wined3d = wine: import ./wined3d.nix { inherit wine; };
+in
 
-callPackage ./wined3d.nix {
-  wine = wineUnstable;
+{
+  stable = wined3d wine;
+  development = wined3d wineUnstable;
+  staging = wined3d wineStaging;
 }

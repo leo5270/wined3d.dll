@@ -1,6 +1,6 @@
 { wine }:
 
-wine.overrideAttrs (old: {
+wine.overrideDerivation (old: {
   name = "wined3d.dll";
 
   makeFlags = [ "dlls/wined3d" ];

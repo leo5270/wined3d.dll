@@ -18,8 +18,10 @@ probably due to [[https://github.com/wine-compholio/wine-staging/tree/v2.21/patc
 
 ** Build from source
 
-You will need [[https://nixos.org/nix/][Nix]]. Once it's installed, run ~nix-build~ while inside this repo's
-directory. After the build is completed, ~result~ will point to patched DLL.
+You will need [[https://nixos.org/nix/][Nix]]. Once installed, run ~nix-build -A <target>~ inside this
+repo's directory, where target can be ~stable~, ~development~ or ~staging~.
+
+After the build is completed, ~result~ will point to patched DLL.
 
 Currently only supports Linux (see [[https://github.com/NixOS/nixpkgs/issues/8849][NixOS/nixpkgs#8849]]). If you use macOS and
 really want this, clone [[https://github.com/wine-mirror/wine][Wine repo]], checkout version that you want to patch,
