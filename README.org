@@ -2,7 +2,7 @@ This builds patched DLL for the original Diablo to run on Wine.
 
 Patch is sourced from: https://forum.winehq.org/viewtopic.php?t=22340
 
-** Installation
+** Install
 
 Grab prebuilt DLL from [[https://github.com/yegortimoshenko/wined3d.dll/releases][GitHub Releases]], preferably version that matches your
 Wine version. Copy it to ~$WINEPREFIX/drive_c/Diablo/wined3d.dll~ and then
