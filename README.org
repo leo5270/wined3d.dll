@@ -1,6 +1,6 @@
-This builds patched DLL for the original Diablo to run on Wine.
-
-Patch is sourced from: https://forum.winehq.org/viewtopic.php?t=22340
+This builds patched ~wined3d.dll~ for the original Diablo on Wine. Currently
+only supports Linux (see [[https://github.com/NixOS/nixpkgs/issues/8849][NixOS/nixpkgs#8849]]). Patch by [[https://github.com/galaxyhaxz][@galaxyhaxz]], sourced
+from: https://forum.winehq.org/viewtopic.php?t=22340
 
 ** Install
 
@@ -22,15 +22,3 @@ You will need [[https://nixos.org/nix/][Nix]]. Once installed, run ~nix-build -A
 repo's directory, where target can be ~stable~, ~development~ or ~staging~.
 
 After the build is completed, ~result~ will point to patched DLL.
-
-Currently only supports Linux (see [[https://github.com/NixOS/nixpkgs/issues/8849][NixOS/nixpkgs#8849]]). If you use macOS and
-really want this, clone [[https://github.com/wine-mirror/wine][Wine repo]], checkout version that you want to patch,
-apply ~ddraw_hack.patch~, run ~./configure~ and ~make dlls/wined3d~. When build
-is complete, rename DLL in ~dlls/wined3d~ (not the fake one) to ~wined3d.dll~
-and follow the instructions above. Primer:
-
-: git clone https://github.com/wine-mirror/wine
-: git checkout wine-2.12
-: git am ddraw_hack.patch
-: ./configure
-: make dlls/wined3d
