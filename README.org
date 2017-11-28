@@ -10,11 +10,10 @@ Diablo.exe DDraw renderer to GDI:
 
 : wine REG ADD HKEY_CURRENT_USER\\Software\\Wine\\AppDefaults\\Diablo.exe\\Direct3D /V DirectDrawRenderer /T REG_SZ /D gdi
 
-When you run the game, main menu should now be visible, but not without visual
-glitches: animated images update only on mouse hover.
+Launch Diablo. Now main menu should be visible, but not without visual glitches:
+animated images update only on mouse hover.
 
-Also please mind that, as of 2.11-staging, Diablo does not run on Wine staging,
-probably due to [[https://github.com/wine-compholio/wine-staging/tree/v2.21/patches][some DDraw patch]].
+Please mind that, as of 2.11, Diablo does not run on [[https://wine-staging.com/][Wine Staging]].
 
 ** Build from source
 
