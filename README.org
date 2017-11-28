@@ -5,8 +5,8 @@ from: https://forum.winehq.org/viewtopic.php?t=22340
 ** Install
 
 Grab prebuilt DLL from [[https://github.com/yegortimoshenko/wined3d.dll/releases][GitHub Releases]], preferably version that matches your
-Wine version. Copy it to ~$WINEPREFIX/drive_c/Diablo/wined3d.dll~ and then
-set Diablo.exe DDraw renderer to GDI:
+Wine version. Copy it to ~$WINEPREFIX/drive_c/Diablo/wined3d.dll~ and then set
+Diablo.exe DDraw renderer to GDI:
 
 : wine REG ADD HKEY_CURRENT_USER\\Software\\Wine\\AppDefaults\\Diablo.exe\\Direct3D /V DirectDrawRenderer /T REG_SZ /D gdi
 
@@ -20,5 +20,4 @@ probably due to [[https://github.com/wine-compholio/wine-staging/tree/v2.21/patc
 
 You will need [[https://nixos.org/nix/][Nix]]. Once installed, run ~nix-build -A <target>~ inside this
 repo's directory, where target can be ~stable~, ~development~ or ~staging~.
-
 After the build is completed, ~result~ will point to patched DLL.
