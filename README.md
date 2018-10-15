@@ -19,13 +19,17 @@ wine REG ADD HKEY_CURRENT_USER\\Software\\Wine\\AppDefaults\\Diablo.exe\\Direct3
 Launch Diablo. Menu should now be visible, but not without glitches: animated
 images only update on mouse hover.
 
-Mind that, as of 2.11, Diablo does not run on [Wine Staging](https://wiki.winehq.org/Wine-Staging).
+Mind that, as of Wine 2.11, Diablo does not run on [Wine Staging][].
+
+[Wine Staging]: https://wiki.winehq.org/Wine-Staging
 
 ## Build from source
 
-You will need [Nix](https://nixos.org/nix/).
+You will need to install [Nix](https://nixos.org/nix/).
 
-Once installed, run `nix-build -A <target>` inside this repo's directory, where
-target can be one of `stable`, `development` or `staging`.
+Run `nix-build -A <target>` inside this repo's directory, where target can be
+one of: `stable`, `development`, `staging`.
 
-After the build is completed, `result` will point to patched DLL.
+After the build is completed, `result` symlink will point to the patched DLL.
+
+If you want a DLL for macOS, that's the only option at the moment.
