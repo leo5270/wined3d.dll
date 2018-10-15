@@ -4,7 +4,7 @@ before_script:
   - nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
   - nix-channel --update
 
-wined3d.zip:
+artifacts.zip:
   stage: build
   script:
   - nix-build release.nix -o artifacts
