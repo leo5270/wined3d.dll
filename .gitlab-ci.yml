@@ -6,7 +6,7 @@ before_script:
 
 wined3d.zip:
   stage: build
-  script: nix-build
+  script: nix-build release.nix
   artifacts:
     paths:
     - result/*
