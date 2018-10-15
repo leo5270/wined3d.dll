@@ -1,0 +1,12 @@
+image: nixos/nix
+
+before_script:
+  - nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+  - nix-channel --update
+
+wined3d.zip:
+  stage: build
+  script: nix-build
+  artifacts:
+    paths:
+    - result/*
