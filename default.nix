@@ -12,7 +12,7 @@ let
       install -D dlls/wined3d/wined3d.dll.so $out
     '';
 
-    patches = [ ./ddraw_hack.patch ];
+    patches = [ ./ddraw-hack.patch ];
   });
 in
 
